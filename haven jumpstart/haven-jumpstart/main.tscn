@@ -1,92 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckrmqj0rby3nv"]
+[gd_scene load_steps=5 format=3 uid="uid://ckrmqj0rby3nv"]
 
-[ext_resource type="Texture2D" uid="uid://vhnygob26fxh" path="res://assets/background.png" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://drobkhs57yi6d" path="res://assets/dino.png" id="2_h2yge"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(0, 0, 704, 736)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(0, 0, 704, 736)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(704, 0, 704, 736)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(1408, 0, 704, 736)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(0, 736, 704, 736)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(704, 736, 704, 736)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4c57u"]
-atlas = ExtResource("2_h2yge")
-region = Rect2(1408, 736, 704, 736)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_efxa6"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1bvp3")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lquwl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_272bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5vw27")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kek77")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4c57u")
-}],
-"loop": true,
-"name": &"running",
-"speed": 10.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(75, 91)
+[ext_resource type="PackedScene" uid="uid://dr4s4mgwlkwwn" path="res://background.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bu5exccya1sql" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dlo761a4r2bhg" path="res://dino.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://clyckrwuy2l00" path="res://world boundary.tscn" id="3_h2yge"]
 
 [node name="main" type="Node"]
+script = ExtResource("1_1bvp3")
 
-[node name="background" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(1199.6672, 324.7891)
-scale = Vector2(0.2404244, 0.2597844)
-texture = ExtResource("1_0xm2m")
+[node name="background" parent="." instance=ExtResource("1_0xm2m")]
+position = Vector2(1199.6672, 322.78906)
 
-[node name="dino" type="CharacterBody2D" parent="."]
+[node name="dino" parent="." instance=ExtResource("2_h2yge")]
+z_index = 1
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="dino"]
-texture_filter = 1
-position = Vector2(174.5625, 440.5483)
-scale = Vector2(0.123402, 0.12340197)
-sprite_frames = SubResource("SpriteFrames_efxa6")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.67653996
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="dino"]
-position = Vector2(168.5, 440.5)
-shape = SubResource("RectangleShape2D_0xm2m")
+[node name="world boundary" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(22, -8)

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccmxnqfjhet8n"]
+
+[ext_resource type="Texture2D" uid="uid://clii42qciavo7" path="res://assets/cactus/purple cactus.png" id="1_2q4x4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mev48"]
+size = Vector2(54, 117)
+
+[node name="purple cactus" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2q4x4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mev48")

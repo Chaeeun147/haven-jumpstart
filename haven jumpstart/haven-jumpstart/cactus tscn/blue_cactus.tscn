@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvjxdf2hgmkoe"]
+
+[ext_resource type="Texture2D" uid="uid://d2p2ll3m1ke4t" path="res://assets/cactus/blue cactus.png" id="1_bi7mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mev48"]
+size = Vector2(54, 117)
+
+[node name="blue cactus" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_bi7mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mev48")

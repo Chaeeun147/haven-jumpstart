@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://clyckrwuy2l00"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vr8l5"]
+distance = -171.211
+
+[node name="world boundary" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 324.789)
+shape = SubResource("WorldBoundaryShape2D_vr8l5")
