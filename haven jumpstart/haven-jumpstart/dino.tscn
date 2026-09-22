@@ -88,7 +88,7 @@ texture_filter = 1
 position = Vector2(174.5625, 440.5483)
 scale = Vector2(0.123402, 0.12340197)
 sprite_frames = SubResource("SpriteFrames_nb2aw")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
